@@ -15,10 +15,15 @@ class MainActivity : AppCompatActivity() {
             //try catch kullandigimiz icin komut hatası yapsak app cokmez
             //myDatabase.execSQL("INSERT INTO musicians (name,age) VALUES('James',50)")
             //myDatabase.execSQL("INSERT INTO musicians (name,age) VALUES('Lars',60)")
-            myDatabase.execSQL("INSERT INTO musicians (name,age) VALUES('Kirk',55)")
+            //myDatabase.execSQL("INSERT INTO musicians (name,age) VALUES('Kirk',55)")
+
+            //myDatabase.execSQL("UPDATE musicians SET age = 61 WHERE name = 'Lars'")
+            //myDatabase.execSQL("UPDATE musicians SET name = 'Kirk Hammett' WHERE id = 3")
+            myDatabase.execSQL("DELETE FROM musicians WHERE name = 'Kirk'")
 
             //val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name = 'James'", null)
-            val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name LIKE '%s'", null)
+            //val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name LIKE '%s'", null)
+            val cursor = myDatabase.rawQuery("SELECT * FROM musicians ", null)
 
             val nameIx = cursor.getColumnIndex("name")
             val ageIx = cursor.getColumnIndex("age")
